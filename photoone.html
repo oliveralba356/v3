@@ -1,15 +1,248 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primera foto de los willd</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramo de Flores Amarillas para Elizabeth <3</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bouquet-container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .petal, .center, .stem, .leaf, .ribbon {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 60s linear forwards;
+    }
+
+    .stem {
+      animation-delay: 1s;
+    }
+
+    .leaf {
+      animation-delay: 5s;
+    }
+
+    .petal {
+      animation-delay: 15s;
+    }
+
+    .center {
+      animation-delay: 25s;
+    }
+
+    .ribbon {
+      animation-delay: 40s;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .petal {
+      fill: yellow;
+      stroke: orange;
+      stroke-width: 2;
+    }
+
+    .center {
+      fill: orange;
+      stroke: #d35400;
+      stroke-width: 2;
+    }
+
+    .stem {
+      stroke: green;
+      stroke-width: 3;
+      fill: none;
+    }
+
+    .leaf {
+      fill: green;
+      stroke: darkgreen;
+      stroke-width: 2;
+    }
+
+    .ribbon {
+      fill: red;
+      stroke: darkred;
+      stroke-width: 3;
+    }
+
+    .star, .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ff0, transparent);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: twinkle 2s infinite;
+    }
+
+    .heart {
+      background: radial-gradient(circle, #f00, transparent);
+      clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 50% 80%, 20% 100%, 0% 40%);
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.8; }
+      50% { opacity: 0.2; }
+      100% { opacity: 0.8; }
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .star {
+      top: 10%;
+      left: 20%;
+    }
+
+    .heart {
+      bottom: 20%;
+      right: 10%;
+    }
+
+    .dynamic-message {
+      position: absolute;
+      font-size: 1.2rem;
+      color: #333;
+      opacity: 0;
+      animation: fadeIn 10s ease-in-out forwards, moveText 19s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes moveText {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .highlight {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    @media screen and (min-width: 768px) {
+      .message1 { top: 10%; left: 5%; }
+      .message2 { top: 20%; right: 10%; }
+      .message3 { bottom: 15%; left: 15%; }
+      .message4 { top: 40%; right: 5%; }
+    }
+
+    @media screen and (max-width: 767px) {
+      .message1 { top: 5%; left: 10%; }
+      .message2 { bottom: 20%; right: 15%; }
+      .message3 { top: 50%; left: 20%; }
+      .message4 { bottom: 10%; right: 5%; }
+    }
+
+  </style>
 </head>
 <body>
-    
-    <img src="img/primera vez 1.jpg" alt="Primera foto">
-    
+
+  <div class="bouquet-container">
+    <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+      <line class="stem" x1="125" y1="180" x2="125" y2="400" />
+      <line class="stem" x1="150" y1="180" x2="150" y2="400" />
+      <line class="stem" x1="175" y1="180" x2="175" y2="400" />
+
+      <ellipse class="leaf" cx="120" cy="250" rx="20" ry="10" />
+      <ellipse class="leaf" cx="180" cy="270" rx="20" ry="10" />
+      <ellipse class="leaf" cx="150" cy="240" rx="20" ry="10" />
+
+      <ellipse class="petal" cx="125" cy="150" rx="30" ry="15" transform="rotate(0 125 150)" />
+      <ellipse class="petal" cx="125" cy="150" rx="30" ry="15" transform="rotate(45 125 150)" />
+      <ellipse class="petal" cx="125" cy="150" rx="30" ry="15" transform="rotate(90 125 150)" />
+      <ellipse class="petal" cx="125" cy="150" rx="30" ry="15" transform="rotate(135 125 150)" />
+      <circle class="center" cx="125" cy="150" r="10" />
+
+      <ellipse class="petal" cx="150" cy="120" rx="30" ry="15" transform="rotate(0 150 120)" />
+      <ellipse class="petal" cx="150" cy="120" rx="30" ry="15" transform="rotate(45 150 120)" />
+      <ellipse class="petal" cx="150" cy="120" rx="30" ry="15" transform="rotate(90 150 120)" />
+      <ellipse class="petal" cx="150" cy="120" rx="30" ry="15" transform="rotate(135 150 120)" />
+      <circle class="center" cx="150" cy="120" r="10" />
+
+      <ellipse class="petal" cx="175" cy="150" rx="30" ry="15" transform="rotate(0 175 150)" />
+      <ellipse class="petal" cx="175" cy="150" rx="30" ry="15" transform="rotate(45 175 150)" />
+      <ellipse class="petal" cx="175" cy="150" rx="30" ry="15" transform="rotate(90 175 150)" />
+      <ellipse class="petal" cx="175" cy="150" rx="30" ry="15" transform="rotate(135 175 150)" />
+      <circle class="center" cx="175" cy="150" r="10" />
+
+      <path class="ribbon" d="M 100 350 Q 150 330 200 350" />
+      <circle class="ribbon" cx="150" cy="350" r="10" />
+    </svg>
+  </div>
+
+  <div class="dynamic-message message1">Te amo el triple❤️</div>
+  <div class="dynamic-message message2">Siempre serás mi doña 🥹❤️‍🩹</div>
+  <div class="dynamic-message message3">Doña enojona xd😒😂</div>
+  <div class="dynamic-message message4">No me caes xd 😂❤️</div>
+
+  <div id="animation-container"></div>
+
+  <script>
+    function createStarsAndHearts() {
+      const container = document.getElementById('animation-container');
+      container.innerHTML = ''; 
+      
+      const numStars = 50;
+      const numHearts = 20;
+
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        container.appendChild(star);
+      }
+
+      for (let i = 0; i < numHearts; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.top = Math.random() * 100 + '%';
+        heart.style.left = Math.random() * 100 + '%';
+        container.appendChild(heart);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(createStarsAndHearts, 1000);
+    });
+
+    document.body.addEventListener('click', () => {
+      createStarsAndHearts();
+    });
+  </script>
+
 </body>
 </html>
